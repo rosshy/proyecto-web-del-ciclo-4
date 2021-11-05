@@ -1,10 +1,11 @@
 # proyecto_ciclo_3_R
-proyecto que se realizará en el equipo R durante el ciclo 3 de misionTIC
+proyecto que se realizará en el equipo ArtCoders durante el ciclo 5 de misionTIC
 
 
 El proyecto consiste en que se desarrollará una aplicación web
 
 ## Integrantes del Team: 
 
-### Rosmy Gaviria
-Actualmente vivo en popayán, soy Psicologa de Profesión, entre mis hobbies esta el escuchar musica y practicar tenis
+### Andrea Carolina Terraza Sequea
+Actualmente vivo en Bogotá, soy estudiante de ciencias de la computación e inteligencia artificial, entre mis hobbies esta la lectura y el baloncesto
+
