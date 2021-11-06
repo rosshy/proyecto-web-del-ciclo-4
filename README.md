@@ -1,5 +1,5 @@
 # proyecto-web-del-ciclo-4
-proyecto que se realizará en el equipo ArtCoders durante el ciclo 4 de desarrollo en programacion web del programa misionTIC en la univesida de antioquia "udea"
+Proyecto que se realizará en el equipo ArtCoders durante el ciclo 4 de programación web del programa misionTIC en la Universidad de Antioquia "UDEA"
 
 
 El proyecto consiste en de desarrollar una aplicación web
@@ -11,3 +11,6 @@ Actualmente vivo en popayán, soy Psicologa de Profesión, entre mis hobbies est
 
 ### Johan Sebastian Ussa Rubio
 Tengo 25 años de edad, soy de la ciudad de bogota. Espero con esta nueva experiencia afianzar conocimientos, aprender cosas nuevas y mejorar, corrigiendo aquellos errores o falencias que se puedan presentar y ganar experiencia en este campo.
+
+## Pedro Luis Sanchez Calle
+Soy de Lorica-Córdoba, actualmente cursando noveno semestre de Ingeniería de Sistemas en la Universidad de Córdoba, tengo  22 años, me gusta mucho bailar y escuhar musica. Espero aprevechar al máximo esta oportunidad, aumentar mis conocimientos y mejorar mis capacidades como desarrollador web.
