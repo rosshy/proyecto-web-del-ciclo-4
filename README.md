@@ -9,3 +9,5 @@ El proyecto consiste en de desarrollar una aplicación web
 ### Rosmy Gaviria Rodriguez
 Actualmente vivo en popayán, soy Psicologa de Profesión, entre mis hobbies esta el escuchar musica y practicar tenis estudio programacion en la udea
 
+### Johan Sebastian Ussa Rubio
+Tengo 25 años de edad, soy de la ciudad de bogota. Espero con esta nueva experiencia afianzar conocimientos, aprender cosas nuevas y mejorar, corrigiendo aquellos errores o falencias que se puedan presentar y ganar experiencia en este campo.
