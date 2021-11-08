@@ -20,3 +20,5 @@ Actualmente vivo en Bogotá tengo 18 años , soy estudiante de ciencias de la co
 
 ### Cristian Alejandro Caleño Velasquez
 Actualmente vivo en Ibague Tolima, tengo experiencia en telecomunicaciones, electronica y redes, deseo con este curso ampliar mis conocimientos para desarrollar proyectos mas completos.
+# Jose García Lopez
+Estudiante del programa mision tic 2021, vivo en Piendamó Cauca, técnico en sistemas egresado del sena y mi estoy en el cuarto ciclo del programa colaborando en el proyecto final.
