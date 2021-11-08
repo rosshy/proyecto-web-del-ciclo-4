@@ -19,4 +19,4 @@ Soy de Lorica-Córdoba, actualmente cursando noveno semestre de Ingeniería de S
 Actualmente vivo en Bogotá tengo 18 años , soy estudiante de ciencias de la computación e inteligencia artificial, me gusta  la lectura y el baloncesto. Mision Tic ees una gran oportunidad y espero salir adelante con este proyecto
 
 ### Cristian Alejandro Caleño Velasquez
-Actualmente vivo en Ibague Tolima, tengo experiencia en telecomicaciones, electronica y redes, deseo con este curso amplir mis conocimientos para desarrollar proyectos mas completos.
+Actualmente vivo en Ibague Tolima, tengo experiencia en telecomunicaciones, electronica y redes, deseo con este curso ampliar mis conocimientos para desarrollar proyectos mas completos.
