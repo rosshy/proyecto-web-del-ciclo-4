@@ -14,3 +14,6 @@ Tengo 25 años de edad, soy de la ciudad de bogota. Espero con esta nueva experi
 
 ## Pedro Luis Sanchez Calle
 Soy de Lorica-Córdoba, actualmente cursando noveno semestre de Ingeniería de Sistemas en la Universidad de Córdoba, tengo  22 años, me gusta mucho bailar y escuhar musica. Espero aprevechar al máximo esta oportunidad, aumentar mis conocimientos y mejorar mis capacidades como desarrollador web.
+
+### Andrea Carolina Terraza Sequea
+Actualmente vivo en Bogotá tengo 18 años , soy estudiante de ciencias de la computación e inteligencia artificial, me gusta  la lectura y el baloncesto. Mision Tic ees una gran oportunidad y espero salir adelante con este proyecto
