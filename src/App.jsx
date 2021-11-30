@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PrivateLayout from 'layouts/PrivateLayout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Auth0Provider } from '@auth0/auth0-react';
 import { UserContext } from 'context/userContext';
+import {ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import Index from 'pages/Index';
 import Page2 from 'pages/Page2';
 import IndexCategory1 from 'pages/category1/Index';
@@ -11,16 +11,20 @@ import 'styles/globals.css';
 
 // import PrivateRoute from 'components/PrivateRoute';
 
+const httpLink = createHttpLink({
+  uri:'' //toca desplegar en heroku para colocar el servidor
+})
+
+const client = new ApolloClient({
+  uri:httpLink, 
+  cache: new InMemoryCache()
+})
+
 function App() {
   const [userData, setUserData] = useState({});
 
   return (
-    <Auth0Provider
-      domain='misiontic-concesionario.us.auth0.com'
-      clientId='WsdhjjQzDLIZEHA6ouuxXGxFONFGAQ4g'
-      redirectUri='http://localhost:3000/admin'
-      audience='api-autenticacion-concesionario-mintic'
-    >
+    <ApolloProvider client={client}>
       <UserContext.Provider value={{ userData, setUserData }}>
         <BrowserRouter>
           <Routes>
@@ -33,8 +37,8 @@ function App() {
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
-    </Auth0Provider>
-  );
+    </ApolloProvider>
+  ); 
 }
 
 export default App;
