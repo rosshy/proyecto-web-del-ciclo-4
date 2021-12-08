@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import Input from 'components/Input';
-import ButtonLoading from 'components/ButtonLoading';
+import Input from '../../components/Input';
+import ButtonLoading from '../../components/ButtonLoading';
 import { Link } from 'react-router-dom';
-import useFormData from 'hooks/useFormData';
+import useFormData from '../../hooks/useFormData';
 import { useMutation } from '@apollo/client';
-import { LOGIN } from 'graphql/auth/mutations';
-import { useAuth } from 'context/authContext';
+import { LOGIN } from '../../graphql/auth/mutations';
+import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
