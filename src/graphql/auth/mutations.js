@@ -2,20 +2,20 @@ import { gql } from '@apollo/client';
 
 const REGISTRO = gql`
   mutation Registro(
-    $nombre: String!
-    $apellido: String!
-    $identificacion: String!
-    $email: String!
-    $rol: Enum_Rol!
-    $password: String!
+    $Nombre: String!
+    $Apellido: String!
+    $Identificacion: String!
+    $Email: String!
+    $Rol: Enum_Rol!
+    $Password: String!
   ) {
     registro(
-      nombre: $nombre
-      apellido: $apellido
-      identificacion: $identificacion
-      email: $email
-      rol: $rol
-      password: $password
+      Nombre: $Nombre
+      Apellido: $Apellido
+      Identificacion: $Identificacion
+      Email: $Email
+      Rol: $Rol
+      Password: $Password
     ) {
       token
       error
@@ -24,8 +24,8 @@ const REGISTRO = gql`
 `;
 
 const LOGIN = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+  mutation Login($Email: String!, $Password: String!) {
+    login(Email: $Email, Password: $Password) {
       token
       error
     }
