@@ -15,11 +15,12 @@ const Register = () => {
   const navigate = useNavigate();
   const { form, formData, updateFormData } = useFormData();
 
-  const [registro, { data: dataMutation, loading: loadingMutation, error: errorMutation }] =
-    useMutation(REGISTRO);
+  const [registro, { data: dataMutation}] =
+    useMutation(REGISTRO,  {errorPolicy: 'all'});
 
   const submitForm = (e) => {
     e.preventDefault();
+
     registro({ variables: formData });
   };
 
@@ -33,28 +34,44 @@ const Register = () => {
   }, [dataMutation, setToken, navigate]);
 
   return (
-    <div className='flex flex-col h-full w-full items-center justify-center'>
-      <h1 className='text-3xl font-bold my-4'>Regístrate</h1>
-      <form className='flex flex-col' onSubmit={submitForm} onChange={updateFormData} ref={form}>
-        <div className='grid grid-cols-2 gap-5'>
-          <Input label='Nombre:' name='nombre' type='text' required />
-          <Input label='Apellido:' name='apellido' type='text' required />
-          <Input label='Documento:' name='identificacion' type='text' required />
-          <DropDown label='Rol deseado:' name='rol' required={true} options={Enum_Rol} />
-          <Input label='Correo:' name='correo' type='email' required />
-          <Input label='Contraseña:' name='password' type='password' required />
-        </div>
-        <ButtonLoading
-          disabled={Object.keys(formData).length === 0}
-          loading={false}
-          text='Registrarme'
-        />
-      </form>
-      <span>¿Ya tienes una cuenta?</span>
-      <Link to='/auth/login'>
-        <span className='text-blue-700'>Inicia sesión</span>
-      </Link>
-    </div>
+    <form onSubmit={submitForm} onChange={updateFormData} ref={form}> 
+      <h3>Registrar nuevo Usuario</h3>
+
+      <div className="form-group">
+          <label id="label-name">Identificación</label>
+          <input id="input-name"type="text" className="form-control" placeholder="Identificación" name= "Identificacion" required/>
+      </div>
+
+      <div className="form-group">
+          <label id="label-name">Nombres</label>
+          <input id="input-name"type="text" className="form-control" placeholder="Nombres" name= "Nombre" required/>
+      </div>
+
+      <div className="form-group">
+          <label id="label-lastname">Apellidos</label>
+          <input id="input-lastname"type="text" className="form-control" placeholder="Apellidos" name= "Apellido" required/>
+      </div>
+
+      <div className="form-group">
+          <label id="label-email">Correo Electrónico</label>
+          <input id ="input-email"type="email" className="form-control" placeholder="Ingresar correo electrónico" name= "Email" required/>
+      </div>
+
+      <div className="form-group">
+          <label id="label-password">Contraseña</label>
+          <input id="input-password"type="password" className="form-control" placeholder="Ingresar contraseña" name= "Password" required/>
+      </div>
+
+      <div className="form-group">
+          <DropDown label='Rol deseado:' name="Rol" required={true} options={Enum_Rol} />
+      </div>
+
+      <button id="btn-register" type="submit" className="btn btn-dark btn-lg btn-block">Registrarse</button>
+      <p className="forgot-password text-right">
+          ¿Ya estás registrado <a href="/auth/login">iniciar sesión?</a>
+      </p>
+
+    </form>
   );
 };
 

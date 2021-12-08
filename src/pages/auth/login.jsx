@@ -34,21 +34,53 @@ const Login = () => {
   }, [dataMutation, setToken, navigate]);
 
   return (
-    <div className='flex flex-col items-center justify-center w-full h-full p-10'>
-      <h1 className='text-xl font-bold text-gray-900'>Iniciar sesión</h1>
-      <form className='flex flex-col' onSubmit={submitForm} onChange={updateFormData} ref={form}>
-        <Input name='correo' type='email' label='Correo' required={true} />
-        <Input name='password' type='password' label='Contraseña' required={true} />
-        <ButtonLoading
-          disabled={Object.keys(formData).length === 0}
-          loading={mutationLoading}
-          text='Iniciar Sesión'
-        />
-      </form>
-      <span>¿No tienes una cuenta?</span>
-      <Link to='/auth/register'>
-        <span className='text-blue-700'>Regístrate</span>
-      </Link>
+    <div>
+        <h3>Iniciar sesión</h3>
+        <hr />
+        <div className="form-group">
+          <label id="label-email">Correo Electrónico</label>
+          <input
+            id="input-email"
+            type="email"
+            className="form-control"
+            placeholder="Ingresar correo electrónico"
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label id="label-password">Contraseña</label>
+          <input
+            id="input-password"
+            type="password"
+            className="form-control"
+            placeholder="Ingresar contraseña"
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <div className="custom-control custom-checkbox">
+            <input
+              type="checkbox"
+              className="custom-control-input"
+              id="customCheck1"
+            />
+            <label className="custom-control-label" htmlFor="customCheck1">
+              Recordar Contraseña
+            </label>
+          </div>
+        </div>
+
+        <button  id="btn-login" type="submit" className="btn btn-dark btn-lg btn-block">
+          Ingresar
+        </button>
+        {/* <p className="forgot-password text-right">
+                  ¿Has olvidado tu <a href="#">contraseña?</a>
+              </p> */}
+        <p className="not-registered text-left">
+          ¿Aún no estas registrado? <a href="/auth/register">Crea tu cuenta</a>
+        </p>
     </div>
   );
 };
