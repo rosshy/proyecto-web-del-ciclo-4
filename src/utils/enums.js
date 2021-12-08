@@ -1,23 +1,23 @@
 const Enum_Rol = {
-  ADMINISTRADOR: 'Administrador',
-  ESTUDIANTE: 'Estudiante',
-  LIDER: 'Líder',
+  ADMINISTRADOR: 'ADMINISTRADOR',
+  ESTUDIANTE: 'ESTUDIANTE',
+  LIDER: 'LIDER',
 };
 
 const Enum_EstadoUsuario = {
-  PENDIENTE: 'Pendiente',
-  AUTORIZADO: 'Autorizado',
-  NO_AUTORIZADO: 'No autorizado',
+  PENDIENTE: 'PENDIENTE',
+  AUTORIZADO: 'AUTORIZADO',
+  NO_AUTORIZADO: 'NO AUTORIZADO',
 };
 
 const Enum_EstadoProyecto = {
-  ACTIVO: 'Activo',
-  INACTIVO: 'Inactivo',
+  ACTIVO: 'ACTIVO',
+  INACTIVO: 'INACTIVO',
 };
 
 const Enum_TipoObjetivo = {
-  GENERAL: 'General',
-  ESPECIFICO: 'Específico',
+  GENERAL: 'GENERAL',
+  ESPECIFICO: 'ESPECIFICO',
 };
 
 export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto, Enum_TipoObjetivo };
