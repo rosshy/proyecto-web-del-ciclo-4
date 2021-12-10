@@ -10,6 +10,7 @@ import Logo from '../images/Alpha_Team_logo.png';
 import { Link } from "react-router-dom";
 
 export default function SideBar() {
+
     const navigate = useNavigate();
     const { authToken, setToken } = useAuth();
     const [loadingAuth, setLoadingAuth] = useState(true);
@@ -39,6 +40,13 @@ export default function SideBar() {
     }, [dataMutation, setToken, loadingAuth, navigate]);
   
     if (loadingMutation || loadingAuth) return <div>Loading...</div>;
+
+    
+    const deleteToken = () => {
+        console.log('eliminar token');
+        setToken(null);
+        localStorage.removeItem('token');
+    };
 
     return (
         <div className="sidebar body">
@@ -97,6 +105,13 @@ export default function SideBar() {
                         <span className="linksName">Mis Proyectos</span>                        
                     </Link>
                     <span className="tooltip">Mis Proyectos</span>
+                </li>
+                <li onClick={() => deleteToken()}>
+                    <Link to="/auth/login" className="links">
+                        <i class="fas fa-door-closed"></i>
+                        <span className="linksName">Salir</span>                        
+                        <span className="tooltip">Salir</span>
+                    </Link>
                 </li>
             </ul>
         </div>

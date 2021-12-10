@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
 import ProjectsLiderPage from './pages/projects/projectsLider/ProjectsLiderPage';
 import IndexUsuarios from './pages/users';
 import EditarUsuario from './pages/users/editar';
-
 import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import jwt_decode from 'jwt-decode';
@@ -16,6 +15,8 @@ import { UserContext } from './context/userContext';
 import AuthLayout from './layouts/AuthLayout';
 import Register from './pages/auth/register';
 import Login from './pages/auth/login';
+import './styles/tabla.css';
+import { ToastContainer } from 'react-toastify';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -57,9 +58,10 @@ function App() {
 
 
   useEffect(() => {
-    if (authToken) {
-      const decoded = jwt_decode(authToken);
-      setUserData({
+    let token =  authToken ? authToken: localStorage.getItem('token');
+    if (token) {
+      const decoded = jwt_decode(token);
+      setUserData({ 
         _id: decoded._id,
         Nombre: decoded.Nombre,
         Apellido: decoded.Apellido,
@@ -92,6 +94,7 @@ function App() {
               </Route>
             </Routes>
           </BrowserRouter>
+          <ToastContainer />
         </UserContext.Provider>
       </AuthContext.Provider>
     </ApolloProvider>
