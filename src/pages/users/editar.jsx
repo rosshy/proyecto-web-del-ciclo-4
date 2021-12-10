@@ -9,7 +9,7 @@ import { EDITAR_USUARIO } from '../../graphql/usuarios/mutations';
 import DropDown from '../../components/Dropdown';
 import { Enum_EstadoUsuario } from '../../utils/enums';
 import ButtonLoading from '../../components/ButtonLoading';
-
+import '../../styles/user.css';
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
   const { _id } = useParams();
@@ -63,34 +63,26 @@ const EditarUsuario = () => {
         ref={form}
         className='flex flex-col items-center justify-center'
       >
-        <Input
-          label='Nombre de la persona:'
-          type='text'
-          name='Nombre'
-          defaultValue={queryData.getOneUser.Nombre}
-          required={true}
-        />
-        <Input
-          label='Apellido de la persona:'
-          type='text'
-          name='Apellido'
-          defaultValue={queryData.getOneUser.Apellido}
-          required={true}
-        />
-        <Input
-          label='Correo de la persona:'
-          type='email'
-          name='Email'
-          defaultValue={queryData.getOneUser.Email}
-          required={true}
-        />
-        <Input
-          label='Identificación de la persona:'
-          type='text'
-          name='Identificacion'
-          defaultValue={queryData.getOneUser.Identificacion}
-          required={true}
-        />
+        <div className="form-group">
+          <label id="label-Nombre">Nombre de la persona:</label>
+          <input id="input-Nombre"type="text" className="form-control fila" placeholder="Nombre" name= "Nombre" defaultValue ={queryData.getOneUser.Nombre} required/>
+        </div>
+
+        <div className="form-group">
+          <label id="label-Apellido">Apellido de la persona:</label>
+          <input id="input-Apellido"type="text" className="form-control fila" placeholder="Apellido" name= "Apellido" defaultValue ={queryData.getOneUser.Apellido} required/>
+        </div>
+
+        <div className="form-group">
+          <label id="label-Email">Correo de la persona:</label>
+          <input id="input-Email"type="text" className="form-control fila" placeholder="Email" name= "Email" defaultValue ={queryData.getOneUser.Email} required/>
+        </div>
+
+        <div className="form-group">
+          <label id="label-Identificacion">Identificación de la persona:</label>
+          <input id="input-Identificacion"type="text" className="form-control fila" placeholder="Identificacion" name= "Identificacion" defaultValue ={queryData.getOneUser.Identificacion} required/>
+        </div>
+        
         <DropDown
           label='Estado de la persona:'
           name='Estado'
@@ -98,12 +90,11 @@ const EditarUsuario = () => {
           required={true}
           options={Enum_EstadoUsuario}
         />
+        <div className="form-group">
         <span>Rol del usuario: {queryData.getOneUser.Rol}</span>
-        <ButtonLoading
-          disabled={Object.keys(formData).length === 0}
-          loading={mutationLoading}
-          text='Confirmar'
-        />
+        </div>
+        
+        <button disabled={Object.keys(formData).length === 0} id="btn-register" type="submit" className="btn btn-dark btn-lg btn-block fila">Confirmar</button>
       </form>
     </div>
   );
