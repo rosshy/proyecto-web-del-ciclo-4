@@ -1,9 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+import { useMutation } from '@apollo/client';
+import { useAuth } from '../../context/authContext';
+import { REFRESH_TOKEN } from '../../graphql/auth/mutations';
+import { useNavigate } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 import './css/styleSidebar.css';
 import Logo from '../images/Alpha_Team_logo.png';
 import { Link } from "react-router-dom";
 
 export default function SideBar() {
+    const navigate = useNavigate();
+    const { authToken, setToken } = useAuth();
+    const [loadingAuth, setLoadingAuth] = useState(true);
+  
+    const [refreshToken, { data: dataMutation, loading: loadingMutation, error: errorMutation }] =
+      useMutation(REFRESH_TOKEN);
+  
+    useEffect(() => {
+      refreshToken();
+    }, [refreshToken]);
+  
+    useEffect(() => {
+      if (dataMutation) {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          setToken(null);
+          navigate('/auth/login');
+        }
+        // if (dataMutation.refreshToken.token) {
+        //   setToken(dataMutation.refreshToken.token);
+        // } else {
+        //   setToken(null);
+        //   navigate('/auth/login');
+        // }
+        setLoadingAuth(false);
+      }
+    }, [dataMutation, setToken, loadingAuth, navigate]);
+  
+    if (loadingMutation || loadingAuth) return <div>Loading...</div>;
 
     return (
         <div className="sidebar body">
