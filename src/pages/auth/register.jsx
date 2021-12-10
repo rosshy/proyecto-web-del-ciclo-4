@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import Input from '../../components/Input';
 import { Enum_Rol } from '../../utils/enums';
 import DropDown from '../../components/Dropdown';
-import ButtonLoading from '../../components/ButtonLoading';
 import useFormData from '../../hooks/useFormData';
 import { Link } from 'react-router-dom';
 import { REGISTRO } from '../../graphql/auth/mutations';
@@ -30,6 +28,11 @@ const Register = () => {
         setToken(dataMutation.registro.token);
         navigate('/');
       }
+
+      // const token = localStorage.getItem('token');
+      // if (token) {
+      //   navigate('/');
+      // }
     }
   }, [dataMutation, setToken, navigate]);
 

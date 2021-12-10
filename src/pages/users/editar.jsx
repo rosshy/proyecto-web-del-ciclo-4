@@ -3,17 +3,16 @@ import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_USUARIO } from '../../graphql/usuarios/queries';
 import Input from '../../components/Input';
-import ButtonLoading from '../../components/ButtonLoading';
 import useFormData from '../../hooks/useFormData';
 import { toast } from 'react-toastify';
 import { EDITAR_USUARIO } from '../../graphql/usuarios/mutations';
 import DropDown from '../../components/Dropdown';
 import { Enum_EstadoUsuario } from '../../utils/enums';
+import ButtonLoading from '../../components/ButtonLoading';
 
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
   const { _id } = useParams();
-
   const {
     data: queryData,
     error: queryError,
@@ -67,39 +66,39 @@ const EditarUsuario = () => {
         <Input
           label='Nombre de la persona:'
           type='text'
-          name='nombre'
-          defaultValue={queryData.Usuario.nombre}
+          name='Nombre'
+          defaultValue={queryData.getOneUser.Nombre}
           required={true}
         />
         <Input
           label='Apellido de la persona:'
           type='text'
-          name='apellido'
-          defaultValue={queryData.Usuario.apellido}
+          name='Apellido'
+          defaultValue={queryData.getOneUser.Apellido}
           required={true}
         />
         <Input
           label='Correo de la persona:'
           type='email'
-          name='correo'
-          defaultValue={queryData.Usuario.correo}
+          name='Email'
+          defaultValue={queryData.getOneUser.Email}
           required={true}
         />
         <Input
           label='Identificación de la persona:'
           type='text'
-          name='identificacion'
-          defaultValue={queryData.Usuario.identificacion}
+          name='Identificacion'
+          defaultValue={queryData.getOneUser.Identificacion}
           required={true}
         />
         <DropDown
           label='Estado de la persona:'
-          name='estado'
-          defaultValue={queryData.Usuario.estado}
+          name='Estado'
+          defaultValue={queryData.getOneUser.Estado}
           required={true}
           options={Enum_EstadoUsuario}
         />
-        <span>Rol del usuario: {queryData.Usuario.rol}</span>
+        <span>Rol del usuario: {queryData.getOneUser.Rol}</span>
         <ButtonLoading
           disabled={Object.keys(formData).length === 0}
           loading={mutationLoading}

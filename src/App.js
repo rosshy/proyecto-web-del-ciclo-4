@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LoginPage from "./pages/login/LoginPage";
-import SideBar from "./components/sidebar/SideBar";
+import PrivateLayout from './layouts/PrivateLayout';
 import MyProjects from "./pages/projects/myProjects/MyProjects";
 import ProjectsAdmin from "./pages/projects/projectsAdmin/ProjectsAdmin";
 import ProjectsEstud from "./pages/projects/projectsEstud/ProjectsEstud";
@@ -8,7 +7,6 @@ import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
 import ProjectsLiderPage from './pages/projects/projectsLider/ProjectsLiderPage';
 import IndexUsuarios from './pages/users';
 import EditarUsuario from './pages/users/editar';
-
 import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import jwt_decode from 'jwt-decode';
@@ -17,6 +15,8 @@ import { UserContext } from './context/userContext';
 import AuthLayout from './layouts/AuthLayout';
 import Register from './pages/auth/register';
 import Login from './pages/auth/login';
+import './styles/tabla.css';
+import { ToastContainer } from 'react-toastify';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -50,7 +50,7 @@ function App() {
     console.log('set token', token);
     setAuthToken(token);
     if (token) {
-      localStorage.setItem('token', JSON.stringify(token));
+      localStorage.setItem('token', token);
     } else {
       localStorage.removeItem('token');
     }
@@ -58,15 +58,16 @@ function App() {
 
 
   useEffect(() => {
-    if (authToken) {
-      const decoded = jwt_decode(authToken);
-      setUserData({
+    let token =  authToken ? authToken: localStorage.getItem('token');
+    if (token) {
+      const decoded = jwt_decode(token);
+      setUserData({ 
         _id: decoded._id,
-        nombre: decoded.nombre,
-        apellido: decoded.apellido,
-        identificacion: decoded.identificacion,
-        correo: decoded.correo,
-        rol: decoded.rol,
+        Nombre: decoded.Nombre,
+        Apellido: decoded.Apellido,
+        Identificacion: decoded.Identificacion,
+        Email: decoded.Email,
+        Rol: decoded.Rol,
       });
     }
   }, [authToken]);
@@ -79,7 +80,7 @@ function App() {
         <UserContext.Provider value={{ userData, setUserData }}>
           <BrowserRouter>
           <Routes>
-              <Route path='/' element={ <SideBar /> }>
+              <Route path='/' element={ <PrivateLayout /> }>
                     <Route path='/usuarios' element={<IndexUsuarios />} />
                     <Route path='/usuarios/editar/:_id' element={<EditarUsuario />} />
                     <Route path='/proyectosAdmin' element={ <ProjectsAdmin /> } />
@@ -93,6 +94,7 @@ function App() {
               </Route>
             </Routes>
           </BrowserRouter>
+          <ToastContainer />
         </UserContext.Provider>
       </AuthContext.Provider>
     </ApolloProvider>
