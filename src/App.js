@@ -19,7 +19,7 @@ import './styles/tabla.css';
 import { ToastContainer } from 'react-toastify';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: 'https://servidor-gql-alphateam21.herokuapp.com/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
