@@ -17,7 +17,7 @@ const GET_USUARIOS = gql`
 
 const GET_USUARIO = gql`
   query GetOneUser($_id: String!) {
-    getOneUser(Identificacion:$_id) {
+    getOneUser(_id: $_id) {
         _id
         Identificacion
         Nombre

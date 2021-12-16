@@ -18,6 +18,7 @@ const IndexUsuarios = () => {
   if (loading) return <div>Cargando....</div>;
 
   return (
+    
     <PrivateRoute roleList={['ADMINISTRADOR']}>
       <div>
         Datos Usuarios:
@@ -34,17 +35,19 @@ const IndexUsuarios = () => {
             </tr>
           </thead>
           <tbody>
-            {data && data.Usuarios ? (
+            
+            {
+            data && data.allUsers ? (
               <>
-                {data.Usuarios.map((u) => {
+                {data.allUsers.map((u) => {
                   return (
                     <tr key={u._id}>
-                      <td>{u.nombre}</td>
-                      <td>{u.apellido}</td>
-                      <td>{u.correo}</td>
-                      <td>{u.identificacion}</td>
-                      <td>{Enum_Rol[u.rol]}</td>
-                      <td>{Enum_EstadoUsuario[u.estado]}</td>
+                      <td>{u.Nombre}</td>
+                      <td>{u.Apellido}</td>
+                      <td>{u.Email}</td>
+                      <td>{u.Identificacion}</td>
+                      <td>{Enum_Rol[u.Rol]}</td>
+                      <td>{Enum_EstadoUsuario[u.Estado]}</td>
                       <td>
                         <Link to={`/usuarios/editar/${u._id}`}>
                           <i className='fas fa-pen text-yellow-600 hover:text-yellow-400 cursor-pointer' />

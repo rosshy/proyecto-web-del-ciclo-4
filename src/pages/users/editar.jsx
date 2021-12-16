@@ -3,17 +3,16 @@ import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_USUARIO } from '../../graphql/usuarios/queries';
 import Input from '../../components/Input';
-import ButtonLoading from '../../components/ButtonLoading';
 import useFormData from '../../hooks/useFormData';
 import { toast } from 'react-toastify';
 import { EDITAR_USUARIO } from '../../graphql/usuarios/mutations';
 import DropDown from '../../components/Dropdown';
 import { Enum_EstadoUsuario } from '../../utils/enums';
-
+import ButtonLoading from '../../components/ButtonLoading';
+import '../../styles/user.css';
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
   const { _id } = useParams();
-
   const {
     data: queryData,
     error: queryError,
@@ -64,47 +63,38 @@ const EditarUsuario = () => {
         ref={form}
         className='flex flex-col items-center justify-center'
       >
-        <Input
-          label='Nombre de la persona:'
-          type='text'
-          name='nombre'
-          defaultValue={queryData.Usuario.nombre}
-          required={true}
-        />
-        <Input
-          label='Apellido de la persona:'
-          type='text'
-          name='apellido'
-          defaultValue={queryData.Usuario.apellido}
-          required={true}
-        />
-        <Input
-          label='Correo de la persona:'
-          type='email'
-          name='correo'
-          defaultValue={queryData.Usuario.correo}
-          required={true}
-        />
-        <Input
-          label='Identificación de la persona:'
-          type='text'
-          name='identificacion'
-          defaultValue={queryData.Usuario.identificacion}
-          required={true}
-        />
+        <div className="form-group">
+          <label id="label-Nombre">Nombre de la persona:</label>
+          <input id="input-Nombre"type="text" className="form-control fila" placeholder="Nombre" name= "Nombre" defaultValue ={queryData.getOneUser.Nombre} required/>
+        </div>
+
+        <div className="form-group">
+          <label id="label-Apellido">Apellido de la persona:</label>
+          <input id="input-Apellido"type="text" className="form-control fila" placeholder="Apellido" name= "Apellido" defaultValue ={queryData.getOneUser.Apellido} required/>
+        </div>
+
+        <div className="form-group">
+          <label id="label-Email">Correo de la persona:</label>
+          <input id="input-Email"type="text" className="form-control fila" placeholder="Email" name= "Email" defaultValue ={queryData.getOneUser.Email} required/>
+        </div>
+
+        <div className="form-group">
+          <label id="label-Identificacion">Identificación de la persona:</label>
+          <input id="input-Identificacion"type="text" className="form-control fila" placeholder="Identificacion" name= "Identificacion" defaultValue ={queryData.getOneUser.Identificacion} required/>
+        </div>
+        
         <DropDown
           label='Estado de la persona:'
-          name='estado'
-          defaultValue={queryData.Usuario.estado}
+          name='Estado'
+          defaultValue={queryData.getOneUser.Estado}
           required={true}
           options={Enum_EstadoUsuario}
         />
-        <span>Rol del usuario: {queryData.Usuario.rol}</span>
-        <ButtonLoading
-          disabled={Object.keys(formData).length === 0}
-          loading={mutationLoading}
-          text='Confirmar'
-        />
+        <div className="form-group">
+        <span>Rol del usuario: {queryData.getOneUser.Rol}</span>
+        </div>
+        
+        <button disabled={Object.keys(formData).length === 0} id="btn-register" type="submit" className="btn btn-dark btn-lg btn-block fila">Confirmar</button>
       </form>
     </div>
   );
