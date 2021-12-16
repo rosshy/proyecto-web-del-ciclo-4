@@ -10,27 +10,45 @@
     text-shadow: 2px 2px 2px rgb(16, 102, 168);
     font-family: serif;
 }
-.hrProject { color: rgb(37, 120, 150); }
+.hrProject { 
+    color: rgb(37, 120, 150); 
+}
 legend {
     font-family: serif;
     font-size: 30px;
     margin-left: 25px;
 }
-#floatingTextarea { min-height: 100px; }
-#containMain { margin-right: 65px; }
+#floatingTextarea { 
+    min-height: 100px; 
+}
+#containMain { 
+    margin-right: 65px; 
+}
 .setDivProject {
     max-width: 100%;
     margin: 25px auto;
     text-align: right;
 }
-.setBtnProject { width: 50%; } 
-#div2Project { text-align: left; }
+.setBtnProject { 
+    width: 50%;     
+}
+.btnColor {
+    background-color: rgb(45, 82, 122);
+}
+#div2Project { 
+    text-align: left; 
+}
 .fa-external-link-alt {
     font-size: 22px;
     color: #10171d;
     padding-right: 10px;
 }
-.col-md-4 { flex: 1 0 auto; }
+.iconArray {
+    padding-right: 10px;
+}
+.col-md-4 { 
+    flex: 1 0 auto; 
+}
 .headColor {
     color: #fff;
     background-color: rgb(45, 82, 122);
@@ -41,9 +59,16 @@ legend {
     margin: auto;
     text-align: center;  
 }
-.btnCard { text-align: center; }
-.btnCardColor { background-color: rgb(45, 82, 122); min-width: 230px; }
-.btn2 { min-width: 230px; }
+.btnCard { 
+    text-align: center; 
+}
+.btnCardColor { 
+    background-color: rgb(45, 82, 122); 
+    min-width: 230px; 
+}
+.btn2 { 
+    min-width: 230px; 
+}
 #btnAdd { 
     border: none; 
     width: 60px;
@@ -54,4 +79,7 @@ legend {
 }
 .btnAvance {
     border: none;
+}
+.divModalAdvances {
+    text-align: center;
 }
