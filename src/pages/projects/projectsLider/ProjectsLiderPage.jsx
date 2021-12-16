@@ -6,8 +6,8 @@ import IconAdd from '../../../components/images/iconAdd.png';
 import IconAcept from '../../../components/images/iconAcept.png';
 import IconCancel from '../../../components/images/iconCancel.png';
 import IconProject from '../../../components/images/iconProyects.png';
-import { Get_ProjectsLider, Get_Advances, Get_Inscriptions } from '../../../graphQL/Projects/QueriesLider';
-import { New_Project } from '../../../graphQL/Projects/MutationLider';
+import { Get_ProjectsLider, Get_Advances, Get_Inscriptions } from '../../../graphql/projects/QueriesLider';
+import { New_Project } from '../../../graphql/projects/MutationLider';
 
 export default function ProjectsPage() {
 
