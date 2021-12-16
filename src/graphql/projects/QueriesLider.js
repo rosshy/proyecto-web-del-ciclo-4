@@ -22,16 +22,19 @@ const Get_ProjectsLider = gql`
     }
 `;
 const Get_Advances = gql`
-    query GetOneAdvance($id: ID!) {
-        filterAdvance(_id: $id) {
+    query AllAdvances {
+        allAdvances {
+            Fecha
+            Descripcion
+            Observaciones
+            Proyecto {
+                _id
+            }
             Estudiante {
                 Identificacion
                 Nombre
                 Apellido
             }
-            Fecha
-            Descripcion
-            Observaciones
         }
     }
 `;
