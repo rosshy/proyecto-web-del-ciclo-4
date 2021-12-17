@@ -1,10 +1,10 @@
 import Swal from 'sweetalert2';
 import './css/styleProjectPage.css';
 import React, { useEffect, useState } from 'react';
+import { useLazyQuery, useMutation } from '@apollo/client';
 import IconAdd from '../../../components/images/iconAdd.png';
 import IconAcept from '../../../components/images/iconAcept.png';
 import IconCancel from '../../../components/images/iconCancel.png';
-import { useLazyQuery, useMutation } from '@apollo/client';
 import IconProject from '../../../components/images/iconProyects.png';
 import { Get_Projects, Get_Advances, Get_Inscriptions } from '../../../graphql/projects/Queries';
 import { New_Project, Update_Project, Update_Advance, Update_Inscription } from '../../../graphql/projects/Mutations';
@@ -20,10 +20,10 @@ export default function ProjectsPage() {
     const [getProjects, { loading, error, data }] = useLazyQuery(Get_Projects);
     const [getInscriptions, { data : dataInsc }] = useLazyQuery(Get_Inscriptions);
     const [addProject, { data : dataProject, error : errorProject }] = useMutation(New_Project);
+    const [updateProject, { data : dataUpProj, error : errorUpProj }] = useMutation(Update_Project);
+    const [updateAdvance, { data : dataUpAdva, error : errorUpAdva }] = useMutation(Update_Advance);
+    const [updateInscription, { data : dataUpIns, error : errorUpIns }] = useMutation(Update_Inscription);
     const [getAdvances, { loading : loadAdvance, error : errorAdvance, data : dataAdvance }] = useLazyQuery(Get_Advances);
-    const [updateProject, { error : errorUpProj }] = useMutation(Update_Project);
-    const [updateAdvance, { error : errorUpAdva }] = useMutation(Update_Advance);
-    const [updateInscription, { error : errorUpIns }] = useMutation(Update_Inscription);
     
     const [Lider, setLider] = useState('');   
     const [Nombre, setNombre] = useState('');   
@@ -46,8 +46,8 @@ export default function ProjectsPage() {
                 text: 'Error al consultar los datos de los proyectos',
             });  
         }                
-    }, [data, error, dataAdvance, errorAdvance, dataInsc, errorProject, 
-        dataProject, getProjects, getAdvances, errorUpProj, errorUpAdva, errorUpIns]);    
+    }, [data, error, dataAdvance, errorAdvance, dataInsc, errorProject, dataUpAdva, errorUpIns,
+        errorUpAdva, dataProject, getProjects, getAdvances, errorUpProj, dataUpProj, dataUpIns]);    
           
     function fecha(fecha) {
         const newFecha = fecha.split("T"); 
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
         <div className="bodyLider"> 
             <div className="container">
                 <img id="iconProject" src={ IconProject } alt="Project" />
-                <h2 id="titleLogo">Modulo de Gestion de Proyectos</h2>
+                <h2 id="titleLogo">Modulo de Gestion de Proyectos</h2> <br />
                 <hr className="hrProject" />
             </div>
             <div id="containMain" className="container border mt-5">
@@ -115,8 +115,8 @@ export default function ProjectsPage() {
                     <legend id="register">{ icons[0] } Proyectos Registrados</legend> 
                     <div id="divCards" className="card-group row g-3">
                     { data && data.allProjects.map( project =>                                                    
-                        <div className="col-md-4">
-                            <div className="card text-dark mb-3">
+                        <div className="col-md-4 tarjet">
+                            <div className="card text-dark">
                                 <div className="card-header headColor row g-0">
                                     <div className="col-md-3 mt-1"><i className="fas fa-shield-virus iconCard"></i></div>
                                     <div className="col-md-9">{ project.Nombre }</div>                                    
@@ -185,7 +185,7 @@ export default function ProjectsPage() {
                                     <div className="col-md-4">
                                         <label className="form-label-sm">Presupuesto</label>
                                         <input type="number" className="form-control form-control-sm" placeholder={ Presupuesto } 
-                                            onChange={ e => setPresupuesto(e.target.value) }/>
+                                            onChange={ e => setPresupuesto(parseFloat(e.target.value)) }/>
                                     </div>
                                     <div className="col-md-4">
                                         <label className="form-label-sm">Fecha de Inicio</label>

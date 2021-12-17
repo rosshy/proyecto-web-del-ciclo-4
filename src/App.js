@@ -17,6 +17,7 @@ import Register from './pages/auth/register';
 import Login from './pages/auth/login';
 import './styles/tabla.css';
 import { ToastContainer } from 'react-toastify';
+import Welcome from './pages/welcome/Welcome';
 
 const httpLink = createHttpLink({
   uri: 'https://servidor-gql-alphateam21.herokuapp.com/graphql',
@@ -81,6 +82,7 @@ function App() {
           <BrowserRouter>
           <Routes>
               <Route path='/' element={ <PrivateLayout /> }>
+                    <Route path='/inicio' element={<Welcome />} />
                     <Route path='/usuarios' element={<IndexUsuarios />} />
                     <Route path='/usuarios/editar/:_id' element={<EditarUsuario />} />
                     <Route path='/proyectosAdmin' element={ <ProjectsAdmin /> } />

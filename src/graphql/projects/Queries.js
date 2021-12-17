@@ -17,17 +17,19 @@ const Get_Projects = gql`
                 Identificacion
                 Nombre
                 Apellido
-            }       
+            }  
+            Inscripciones {
+                Estudiante {
+                    _id
+                }
+            }               
         }
     }
 `;
 const Get_Advances = gql`
     query AllAdvances {
         allAdvances {
-<<<<<<< HEAD:src/graphql/projects/QueriesLider.js
-=======
             _id
->>>>>>> feature2:src/graphql/projects/Queries.js
             Fecha
             Descripcion
             Observaciones
@@ -39,8 +41,6 @@ const Get_Advances = gql`
                 Nombre
                 Apellido
             }
-<<<<<<< HEAD:src/graphql/projects/QueriesLider.js
-=======
         }
     }
 `;
@@ -57,7 +57,6 @@ const Get_AdvanceByID = gql`
             Fecha
             Descripcion
             Observaciones
->>>>>>> feature2:src/graphql/projects/Queries.js
         }
     }
 `;
@@ -77,8 +76,4 @@ const Get_Inscriptions = gql`
     }
 `;
 
-<<<<<<< HEAD:src/graphql/projects/QueriesLider.js
-export { Get_ProjectsLider, Get_Advances, Get_Inscriptions }
-=======
 export { Get_Projects, Get_Advances, Get_Inscriptions, Get_AdvanceByID }
->>>>>>> feature2:src/graphql/projects/Queries.js
