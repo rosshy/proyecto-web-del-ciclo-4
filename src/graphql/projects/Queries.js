@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const Get_ProjectsLider = gql`
+const Get_Projects = gql`
     query{
         allProjects {
             _id
@@ -24,6 +24,10 @@ const Get_ProjectsLider = gql`
 const Get_Advances = gql`
     query AllAdvances {
         allAdvances {
+<<<<<<< HEAD:src/graphql/projects/QueriesLider.js
+=======
+            _id
+>>>>>>> feature2:src/graphql/projects/Queries.js
             Fecha
             Descripcion
             Observaciones
@@ -35,12 +39,32 @@ const Get_Advances = gql`
                 Nombre
                 Apellido
             }
+<<<<<<< HEAD:src/graphql/projects/QueriesLider.js
+=======
+        }
+    }
+`;
+const Get_AdvanceByID = gql`
+    query FilterAdvance( $id: ID! ) {
+        filterAdvance( _id: $id ) {
+            _id
+            Estudiante {
+                _id
+                Identificacion
+                Nombre
+                Apellido
+            }
+            Fecha
+            Descripcion
+            Observaciones
+>>>>>>> feature2:src/graphql/projects/Queries.js
         }
     }
 `;
 const Get_Inscriptions = gql`
     query ($id: ID!) {
-        filterInscription(_id: $id) {
+        filterInscription( _id: $id ) {
+            _id
             Estudiante {
                 Identificacion
                 Nombre
@@ -53,4 +77,8 @@ const Get_Inscriptions = gql`
     }
 `;
 
+<<<<<<< HEAD:src/graphql/projects/QueriesLider.js
 export { Get_ProjectsLider, Get_Advances, Get_Inscriptions }
+=======
+export { Get_Projects, Get_Advances, Get_Inscriptions, Get_AdvanceByID }
+>>>>>>> feature2:src/graphql/projects/Queries.js
