@@ -18,6 +18,11 @@ legend {
     font-size: 30px;
     margin-left: 25px;
 }
+h4 {
+    font-family: serif;
+    font-size: 30px;
+    margin-left: 25px;
+}
 #floatingTextarea { 
     min-height: 100px; 
 }
@@ -73,13 +78,30 @@ legend {
     border: none; 
     width: 60px;
     align-items: center;
+    background-color: initial;
 }
 #iconAdd {
-    width: 26px;
+    width: 24px;
+    padding: 0;
 }
 .btnAvance {
     border: none;
+    background-color: initial;
 }
 .divModalAdvances {
     text-align: center;
+}
+#linkView {
+    width: 20%;
+    margin-left: 48%;
+    position: absolute;
+    float: left;
+    margin-top: 24px;
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.tarjet {
+    padding: 0 5px;
 }

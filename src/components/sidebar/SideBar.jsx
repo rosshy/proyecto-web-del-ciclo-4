@@ -65,7 +65,7 @@ export default function SideBar() {
             </div>
             <ul className="navList">
                 <li>
-                    <Link to="/" className="links" id="inicio" >
+                    <Link to="/inicio" className="links" id="inicio" >
                         <i className="fas fa-laptop-house"></i>
                         <span className="linksName">Inicio</span>                        
                     </Link>
