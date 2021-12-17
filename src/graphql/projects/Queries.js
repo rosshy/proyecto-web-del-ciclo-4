@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const Get_ProjectsLider = gql`
+const Get_Projects = gql`
     query{
         allProjects {
             _id
@@ -22,9 +22,29 @@ const Get_ProjectsLider = gql`
     }
 `;
 const Get_Advances = gql`
-    query GetOneAdvance($id: ID!) {
-        filterAdvance(_id: $id) {
+    query AllAdvances {
+        allAdvances {
+            _id
+            Fecha
+            Descripcion
+            Observaciones
+            Proyecto {
+                _id
+            }
             Estudiante {
+                Identificacion
+                Nombre
+                Apellido
+            }
+        }
+    }
+`;
+const Get_AdvanceByID = gql`
+    query FilterAdvance( $id: ID! ) {
+        filterAdvance( _id: $id ) {
+            _id
+            Estudiante {
+                _id
                 Identificacion
                 Nombre
                 Apellido
@@ -37,7 +57,8 @@ const Get_Advances = gql`
 `;
 const Get_Inscriptions = gql`
     query ($id: ID!) {
-        filterInscription(_id: $id) {
+        filterInscription( _id: $id ) {
+            _id
             Estudiante {
                 Identificacion
                 Nombre
@@ -50,4 +71,4 @@ const Get_Inscriptions = gql`
     }
 `;
 
-export { Get_ProjectsLider, Get_Advances, Get_Inscriptions }
+export { Get_Projects, Get_Advances, Get_Inscriptions, Get_AdvanceByID }
